@@ -1,16 +1,14 @@
 #!/bin/bash
-# WARNING: this script will destroy data on the selected disk.
-# This script can be run by executing the following:
-#   curl -sL https://git.io/vNxbN | bash
 
 set -uo pipefail
 trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
 
 ### Get infomation from user ###
-root_password=$(dialog --stdout --passwordbox "Enter new root password" 0 0) || exit 1
+echo Enter new root password
+read root_password
 clear
-: ${password:?"password cannot be empty"}
-root_password2=$(dialog --stdout --passwordbox "Enter new root password again" 0 0) || exit 1
+echo Enter new root password again
+read root_password2
 clear
 [[ "$root_password" == "$root_password2" ]] || ( echo "Passwords did not match"; exit 1; )
 
