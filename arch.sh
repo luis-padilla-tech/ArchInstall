@@ -100,10 +100,6 @@ mount "${part_boot}" /boot/EFI
 grub-installer --target=x86_64-efi --bootloader-id=grub_uefi --recheck
 grub-mkconfig -o /boot/grub/grub.cfg
 
-### Awesome setup ###
-
-pacman -S networkmanager alacritty code awesome xorg xorg-init git krusader compositer
-
 systemctl enable NetworkManager
 
 exit
