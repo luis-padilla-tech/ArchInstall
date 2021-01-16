@@ -1,8 +1,11 @@
 #!/bin/bash
 
 ### Get infomation from user ###
-echo Enter new root password
-read root_password
+while true
+do
+  echo Enter new root password
+  read root_password
+done
 echo Enter new root password again
 read root_password2
 [[ "$root_password" == "$root_password2" ]] || ( echo "Passwords did not match"; exit 1; )
