@@ -1,5 +1,9 @@
 #!/bin/bash
 
+### Set up logging ###
+exec 1> >(tee "stdout.log")
+exec 2> >(tee "stderr.log")
+
 ### Get infomation from user ###
 while true
 do
@@ -28,9 +32,6 @@ devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
 device=$(dialog --stdout --menu "Select installation disk" 0 0 0 ${devicelist}) || exit 1
 clear
 
-### Set up logging ###
-exec 1> >(tee "stdout.log")
-exec 2> >(tee "stderr.log")
 
 timedatectl set-ntp true
 
