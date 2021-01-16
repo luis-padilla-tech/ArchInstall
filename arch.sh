@@ -3,10 +3,8 @@
 ### Get infomation from user ###
 echo Enter new root password
 read root_password
-clear
 echo Enter new root password again
 read root_password2
-clear
 [[ "$root_password" == "$root_password2" ]] || ( echo "Passwords did not match"; exit 1; )
 
 hostname=$(dialog --stdout --inputbox "Enter hostname" 0 0) || exit 1
