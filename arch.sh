@@ -1,8 +1,5 @@
 #!/bin/bash
 
-set -uo pipefail
-trap 's=$?; echo "$0: Error on line "$LINENO": $BASH_COMMAND"; exit $s' ERR
-
 ### Get infomation from user ###
 echo Enter new root password
 read root_password
