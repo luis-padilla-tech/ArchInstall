@@ -5,8 +5,8 @@ exec 1> >(tee "stdout.log")
 exec 2> >(tee "stderr.log")
 
 ### Get infomation from user ###
-echo Enter new root password
-read root_password
+echo -n "Enter new root password"
+read -s root_password
 
 echo Enter new root password again
 read root_password2
@@ -16,7 +16,7 @@ echo Enter hostname
 read hostname
 
 echo Enter User name
-user
+read user
 
 echo Enter password
 read password
