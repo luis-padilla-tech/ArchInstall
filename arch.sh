@@ -7,19 +7,16 @@ echo Enter new root password again
 read root_password2
 [[ "$root_password" == "$root_password2" ]] || ( echo "Passwords did not match"; exit 1; )
 
-hostname=$(dialog --stdout --inputbox "Enter hostname" 0 0) || exit 1
-clear
-: ${hostname:?"hostname cannot be empty"}
+echo Enter hostname
+read hostname
 
-user=$(dialog --stdout --inputbox "Enter username" 0 0) || exit 1
-clear
-: ${user:?"user cannot be empty"}
+echo Enter User name
+user
 
-password=$(dialog --stdout --passwordbox "Enter password" 0 0) || exit 1
-clear
-: ${password:?"password cannot be empty"}
-password2=$(dialog --stdout --passwordbox "Enter password again" 0 0) || exit 1
-clear
+echo Enter password
+read password
+echo Enter password again
+read password2
 [[ "$password" == "$password2" ]] || ( echo "Passwords did not match"; exit 1; )
 
 
